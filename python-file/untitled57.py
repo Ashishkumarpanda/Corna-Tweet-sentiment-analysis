@@ -66,7 +66,7 @@ model.add(Embedding(voc_size,dim,input_length=sent_length))
 model.add(Dropout(0.3))
 model.add(LSTM(80))
 model.add(Dropout(0.3))
-model.add(Dense(1,activation='sigmoid'))
+model.add(Dense(1,activation='softmax'))
 model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
 
 model.fit(x_train,y_train,batch_size=50,epochs=120,validation_data=(x_test,y_test))
